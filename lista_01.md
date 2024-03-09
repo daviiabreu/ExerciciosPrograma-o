@@ -133,20 +133,26 @@ Criando e manipulando Animais:
 Dica: Utilize `console.log()` para exibir as informações!
 
 ```javascript
+// Definindo a classe Animal
 class Animal {
+    // Construtor para inicializar as propriedades comuns
     constructor(nome, idade, tipo) {
         this.nome = nome;
         this.idade = idade;
         this.tipo = tipo;
     }
+
+    // Método para descrever o animal
     descrever() {
         return "Seu " + this.tipo + " se chama " + this.nome + " e tem " + this.idade + " anos de idade.";
     }
 }
 
+// Criando instâncias da classe Animal
 let cachorro = new Animal("Rex", 3, "cachorro");
 let gato = new Animal("Garfield", 2, "gato");
 
+// Exibindo descrições no console
 console.log(cachorro.descrever());
 console.log(gato.descrever());
 ```
@@ -176,35 +182,48 @@ Chamando os Métodos:
 Dica: Utilize console.log() para exibir as informações!
 
 ```javascript
+// Definindo a classe Animal
 class Animal {
+    // Construtor para inicializar as propriedades comuns
     constructor(nome, idade, tipo) {
         this.nome = nome;
         this.idade = idade;
         this.tipo = tipo;
     }
+
+    // Método para descrever o animal
     descrever() {
         return "Seu " + this.tipo + " se chama " + this.nome + " e tem " + this.idade + " anos de idade.";
     }
 }
 
+// Criando instâncias da classe Animal
 let cachorro = new Animal("Rex", 3, "cachorro");
-let gato = new Animal("Garfield", 2, "gato", "malhado");
+let gato = new Animal("Garfield", 2, "gato", "malhado"); // Note: parâmetro "malhado" não é usado
 
+// Definindo a classe derivada Gato que estende Animal
 class Gato extends Animal {
+    // Construtor que chama o construtor da classe pai e adiciona propriedades específicas
     constructor(cor) {
         super("Garfield", 2, "gato");
         this.cor = cor;
     }
+
+    // Método específico para o som emitido pelo gato
     miar() {
         return "Miau!";
-    }    
+    }
+
+    // Método para descrever o gato, chamando o método descrever da classe pai
     gatoDescrever() {
         return super.descrever() + " Ele é " + this.cor + ".";
     }
 }
 
+// Criando uma instância da classe Gato
 gato = new Gato("malhado");
 
+// Exibindo descrições e miado no console
 console.log(cachorro.descrever());
 console.log(gato.gatoDescrever());
 console.log(gato.miar());
@@ -232,23 +251,33 @@ Chamando o Método para Ver o Total:
 Dica: Utilize console.log() para exibir as informações!
 
 ```javascript
+// Definindo a classe SomadorDeNotas
 class SomadorDeNotas {
-  constructor() {
-    this.soma = 0;
-  }
-  adicionarNota(notas) {
-    for (let nota of notas) {
-      this.soma += nota;
+    // Construtor para inicializar a soma
+    constructor() {
+        this.soma = 0;
     }
-  }
-  verTotal() {
-    return this.soma;
-  }
+
+    // Método para adicionar notas à soma
+    adicionarNota(notas) {
+        for (let nota of notas) {
+            this.soma += nota;
+        }
+    }
+
+    // Método para obter o total da soma
+    verTotal() {
+        return this.soma;
+    }
 }
 
-somador = new SomadorDeNotas();
+// Criando uma instância da classe SomadorDeNotas
+let somador = new SomadorDeNotas();
+
+// Adicionando notas à instância
 somador.adicionarNota([6, 7, 4, 10]);
 
+// Exibindo o total da soma no console
 console.log(somador.verTotal());
 ```
 
@@ -272,3 +301,51 @@ Agora, sua tarefa é escrever um código em JavaScript que crie as classes Funci
 - Para cada objeto, chame o método calcularSalario() e mostre o salário calculado no console.
 
 Certifique-se de explicar cada parte do código utilizando comentários, explicando para que serve cada atributo e método, bem como a lógica por trás do cálculo de salário para o tipo de funcionário Professor.
+
+```javascript
+// Definindo a classe base Funcionario
+class Funcionario {
+    // Construtor para inicializar as propriedades comuns
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.salariobase = 2000; // Salário base padrão para todos os funcionários
+    }
+
+    // Método para calcular o salário com base na idade
+    calcularSalario() {
+        return "O salário de " + this.nome + " é " + (this.salariobase * (1 + (this.idade / 100)));
+    }
+}
+
+// Criando instâncias da classe Funcionario
+let funcionario1 = new Funcionario("João", 20);
+let funcionario2 = new Funcionario("Maria", 55);
+
+// Definindo a classe derivada Professor que estende Funcionario
+class Professor extends Funcionario {
+    // Construtor que chama o construtor da classe pai e adiciona propriedades específicas
+    constructor(nome, idade, disciplina, horasaula) {
+        super(nome, idade);
+        this.disciplina = disciplina;
+        this.horasaula = horasaula;
+    }    
+
+    // Sobrescrevendo o método calcularSalario para incluir o valor das horas de aula
+    calcularSalario() {
+        return "O professor " + this.nome + ", que ministra: " + this.disciplina + " recebe " + (this.salariobase + (this.horasaula * 100)) + " reais";
+    }
+}
+
+// Criando instâncias da classe Professor
+let professor1 = new Professor("André", 60, "Matemática", 20);
+let professor2 = new Professor("Golias", 25, "Física", 14);
+let professor3 = new Professor("Aryana", 37, "Química", 17);
+
+// Exibindo os salários calculados no console
+console.log(funcionario1.calcularSalario());
+console.log(funcionario2.calcularSalario());
+console.log(professor1.calcularSalario());
+console.log(professor2.calcularSalario());
+console.log(professor3.calcularSalario());
+```
