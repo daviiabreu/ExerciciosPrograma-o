@@ -18,12 +18,13 @@ print(a)
 # Questões objetivas
 
 **1)** O que o código a seguir faz?
+R: Letra A
 
 ![Uma imagem](assets/ex01.PNG)
 
 Escolha a opção que responde corretamente:
 
-a) Imprime os números pares de 1 a 10.
+Xa) Imprime os números pares de 1 a 10.
 
 b) Imprime os números ímpares de 1 a 10.
 
@@ -34,12 +35,13 @@ d) Imprime os números ímpares de 2 a 10.
 ______
 
 **2)** Identificar a linha que falta no código para criar uma classe Veiculo com atributo marca, e uma classe Carro que herda de Veiculo com um método ligar(). 
+R: Letra A
 
 ![Uma imagem](assets/ex02.PNG)
 
 No lugar onde está escrito “// linha” qual das opções abaixo deve estar para funcionar corretamente o código?
 
-A) let carro = new Carro("Toyota");
+XA) let carro = new Carro("Toyota");
 
 B) let ligar = new ligar("Toyota");
 
@@ -50,12 +52,13 @@ D) carro1.ligar();
 ______
 
 **3)** Qual é o valor de resultado após a execução deste código?
+R: Letra A
 
 ![Uma imagem](assets/ex03.PNG)
 
 Escolha a opção que responde corretamente:
 
-A) 18
+XA) 18
 
 B) 16
 
@@ -66,8 +69,9 @@ D) 12
 ______
 
 **4)** Como você criaria um método `acelerar()` em uma classe `Carro`, que recebe um parâmetro `velocidade` e o adiciona a um atributo `velocidadeAtual`?
+R: Letra A
 
-A) ![Uma imagem](assets/ex04_1.PNG)
+XA) ![Uma imagem](assets/ex04_1.PNG)
 
 B) ![Uma imagem](assets/ex04_2.PNG)
 
@@ -78,8 +82,9 @@ D) ![Uma imagem](assets/ex04_4.PNG)
 ______
 
 **5)** Qual a forma correta de definir uma classe Carro em JavaScript, com um método ligar() e um atributo marca?
+R: Letra A
 
-A) ![Uma imagem](assets/ex05_1.PNG)
+XA) ![Uma imagem](assets/ex05_1.PNG)
 
 B) ![Uma imagem](assets/ex05_2.PNG)
 
@@ -94,8 +99,9 @@ ______
 ![Uma imagem](assets/ex06.PNG)
 
 Qual será a saída do código acima?
+R: Letra A
 
-A) "Olá, meu nome é João. Olá, meu nome é Maria."
+XA) "Olá, meu nome é João. Olá, meu nome é Maria."
 
 B) "Olá, meu nome é ."
 
@@ -120,6 +126,24 @@ Criando e manipulando Animais:
 
 Dica: Utilize `console.log()` para exibir as informações!
 
+```javascript
+class Animal {
+    constructor(nome, idade, tipo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.tipo = tipo;
+    }
+    descrever() {
+        return "Seu " + this.tipo + " se chama " + this.nome + " e tem " + this.idade + " anos de idade.";
+    }
+}
+
+let cachorro = new Animal("Rex", 3, "cachorro");
+let gato = new Animal("Garfield", 2, "gato");
+
+console.log(cachorro.descrever());
+console.log(gato.descrever());
+```
 ______
 
 **8)** Nos últimos dias tivemos a oportunidade de ter contato com Programação Orientada a Objetos, e tivemos contato com o tema "herança". Herança é um princípio de orientação a objetos, que permite que classes compartilhem atributos e métodos. Ela é usada na intenção de reaproveitar código ou comportamento generalizado ou especializar operações ou atributos. Então vamos praticar esse conteúdo nessa questão.
@@ -145,6 +169,40 @@ Chamando os Métodos:
 
 Dica: Utilize console.log() para exibir as informações!
 
+```javascript
+class Animal {
+    constructor(nome, idade, tipo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.tipo = tipo;
+    }
+    descrever() {
+        return "Seu " + this.tipo + " se chama " + this.nome + " e tem " + this.idade + " anos de idade.";
+    }
+}
+
+let cachorro = new Animal("Rex", 3, "cachorro");
+let gato = new Animal("Garfield", 2, "gato", "malhado");
+
+class Gato extends Animal {
+    constructor(cor) {
+        super("Garfield", 2, "gato");
+        this.cor = cor;
+    }
+    miar() {
+        return "Miau!";
+    }    
+    gatoDescrever() {
+        return super.descrever() + " Ele é " + this.cor + ".";
+    }
+}
+
+gato = new Gato("malhado");
+
+console.log(cachorro.descrever());
+console.log(gato.gatoDescrever());
+console.log(gato.miar());
+```
 
 ______
 
