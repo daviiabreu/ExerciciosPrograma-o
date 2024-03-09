@@ -18,6 +18,7 @@ print(a)
 # Questões objetivas
 
 **1)** O que o código a seguir faz?
+
 R: Letra A
 
 ![Uma imagem](assets/ex01.PNG)
@@ -35,6 +36,7 @@ d) Imprime os números ímpares de 2 a 10.
 ______
 
 **2)** Identificar a linha que falta no código para criar uma classe Veiculo com atributo marca, e uma classe Carro que herda de Veiculo com um método ligar(). 
+
 R: Letra A
 
 ![Uma imagem](assets/ex02.PNG)
@@ -52,6 +54,7 @@ D) carro1.ligar();
 ______
 
 **3)** Qual é o valor de resultado após a execução deste código?
+
 R: Letra A
 
 ![Uma imagem](assets/ex03.PNG)
@@ -69,6 +72,7 @@ D) 12
 ______
 
 **4)** Como você criaria um método `acelerar()` em uma classe `Carro`, que recebe um parâmetro `velocidade` e o adiciona a um atributo `velocidadeAtual`?
+
 R: Letra A
 
 XA) ![Uma imagem](assets/ex04_1.PNG)
@@ -82,6 +86,7 @@ D) ![Uma imagem](assets/ex04_4.PNG)
 ______
 
 **5)** Qual a forma correta de definir uma classe Carro em JavaScript, com um método ligar() e um atributo marca?
+
 R: Letra A
 
 XA) ![Uma imagem](assets/ex05_1.PNG)
@@ -99,6 +104,7 @@ ______
 ![Uma imagem](assets/ex06.PNG)
 
 Qual será a saída do código acima?
+
 R: Letra A
 
 XA) "Olá, meu nome é João. Olá, meu nome é Maria."
@@ -225,6 +231,26 @@ Chamando o Método para Ver o Total:
 
 Dica: Utilize console.log() para exibir as informações!
 
+```javascript
+class SomadorDeNotas {
+  constructor() {
+    this.soma = 0;
+  }
+  adicionarNota(notas) {
+    for (let nota of notas) {
+      this.soma += nota;
+    }
+  }
+  verTotal() {
+    return this.soma;
+  }
+}
+
+somador = new SomadorDeNotas();
+somador.adicionarNota([6, 7, 4, 10]);
+
+console.log(somador.verTotal());
+```
 
 ______
 
